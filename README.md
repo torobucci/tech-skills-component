@@ -1,13 +1,24 @@
 # Tech Skill Form Component
 Building this component arose as a challenge by [FrontEnd Pro](https://www.frontendpro.dev/frontend-coding-challenges/sortable-list-component-yfG6JlItkHMpWze4wacs).
-Here are the challenge requirements
+Here are the challenge requirements and my approach to solving them
 
 ## Challenge Requierments
 - ## The component should display a list of up to 5 selected skills in a column.
   ### solution
    - create a useState hook to handle list in an array
-   - create an addSkill function, which after selecting a skill,
-     update the skills array with the added skill
+
+     ```javascript
+     const [skills, setSkills] = useState([]);
+     ```
+   - create an addSkill function, which after selecting a skill or inputting a skill, the skills array is updated with the added skill
+
+     ```javascript const addSkill = (skill) => {
+        if (skills.length < 5 && !skills.includes(skill)) {
+          let newSkills = [...skills, skill];
+          setSkills(newSkills);
+         }
+        };
+     ```
    - create a list skills component to display lists
 
 
